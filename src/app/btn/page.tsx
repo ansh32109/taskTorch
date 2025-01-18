@@ -4,7 +4,9 @@ import LandingButton from '@/components/ui/landingButton'
 const page = () => {
   return (
     <div>
-        <LandingButton label='test'></LandingButton>
+        <LandingButton>
+            Hello
+        </LandingButton>
     </div>
   )
 }

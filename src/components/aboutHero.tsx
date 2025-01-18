@@ -1,15 +1,28 @@
-import React from 'react'
+'use client';
+
+import React, { useEffect, useState } from 'react'
 import { BackgroundLines } from './ui/background-lines'
 import LandingButton from './ui/landingButton'
+import { FloatingNav } from './ui/floating-navbar';
+
 
 const AboutHero = ({ onClick }: { onClick: (e: React.MouseEvent) => void }) => {
 
+  const navItems = [
+    {
+      name: 'Get Started',
+      link: '/signup',
+      // icon: 
+    }
+  ]
+
     return (
     <BackgroundLines>
-          <nav className='flex w-full gap-[3rem] flex-row-reverse mt-4 p-4 h-[10vh] backdrop-blur-sm sticky'>
+          {/* <nav id='navbar' className='flex gap-[3rem] border rounded-2xl fixed left-[50%] -translate-x-[50%] mt-4 p-4 h-[10vh]'>
             <LandingButton>Login</LandingButton>
             <LandingButton>Get started!</LandingButton>
-          </nav>
+          </nav> */}
+          <FloatingNav navItems={navItems} className='' />
           <div className="h-[40rem] w-full rounded-md  relative flex flex-col items-center justify-center antialiased">
             <div className="max-w-2xl mx-auto p-4 text-center">
               <h1 className="relative z-10 text-lg md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600 font-sans font-bold">

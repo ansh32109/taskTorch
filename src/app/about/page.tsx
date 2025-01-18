@@ -1,17 +1,14 @@
 'use client';
 
 import React from 'react'
-import Link from 'next/link'
-import { BackgroundLines } from '@/components/ui/background-lines'
-import { Button } from '@/components/ui/button'
 import AboutHero from '@/components/aboutHero';
-import { Boxes } from '@/components/ui/background-boxes';
 import { FlipWords } from '@/components/ui/flip-words';
 import './page.css'
 import Image from 'next/image';
 import collab from '../../../public/assets/collab.svg'
 import CPF from '../../../public/assets/CPF.svg'
-import VerticalLine from '../../../public/SVGCollection/lineV.svg'
+import Customize from '../../../public/assets/customize.svg'
+import Manage from '../../../public/assets/manage.svg'
 
 const Page = () => {
   
@@ -50,7 +47,7 @@ const Page = () => {
               Say goodbye to email chains and scattered messages. With TaskTorch, collaborate effortlessly with team members in real time. Share updates, files, and feedback without missing a beat.
               </p>
             </div>
-            <div className='border border- my-4' />
+            <div className='border my-4' />
             {/* Image */}
             <div className='w-[25%] content-center justify-items-center'>
               <Image src={collab} width={100} height={100} alt='collab' className='h-[75%] w-[75%] items-center rounded-xl hover:scale-110 hover:duration-150'/>
@@ -80,16 +77,18 @@ const Page = () => {
                 Every team works differently, and TaskTorch adapts to you. Create workflows tailored to your unique project needs with drag-and-drop simplicity.
               </p>
             </div>
+            <div className='border ml-4 my-4' />
             {/* image */}
-            <div>
-
+            <div className='w-[50%] content-center justify-items-center'>
+              <Image src={Customize} width={100} height={100} alt='customize' className='h-[60%] w-[60%] hover:scale-110 hover:duration-150' />
             </div>
           </div>
           <div className='border rounded-xl hover:scale-105 hover:duration-150 flex'>
             {/* image */}
-            <div>
-              
+            <div className='w-[50%] h-full content-center justify-items-center'>
+              <Image src={Manage} width={100} height={100} alt='manage' className='w-[60%] hover:scale-110 hover:duration-150' />
             </div>
+            <div className='border mr-4 my-4' />
             {/* text */}
             <div className='flex flex-col-reverse w-[50%]'>
               <h1 className='text-2xl mb-5'>
