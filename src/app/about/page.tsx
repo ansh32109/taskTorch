@@ -1,6 +1,6 @@
-'use client';
+"use client";
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import AboutHero from '@/components/aboutHero';
 import { FlipWords } from '@/components/ui/flip-words';
 import './page.css'
@@ -9,8 +9,30 @@ import collab from '../../../public/assets/collab.svg'
 import CPF from '../../../public/assets/CPF.svg'
 import Customize from '../../../public/assets/customize.svg'
 import Manage from '../../../public/assets/manage.svg'
+import UpArr from '../../../public/assets/arrow-up.svg'
+import ButtonUp from '@/components/ui/button-up';
 
 const Page = () => {
+
+  const [arrVisibility, setArrVisibility] = useState(true)
+
+  const [scroll, setScroll] = useState(0)
+
+  useEffect(()=>{
+    const findScroll = () => {
+      setScroll(window.scrollY)
+    }
+    window.addEventListener("scroll", findScroll)
+
+    return () => {
+      window.removeEventListener("scroll", findScroll)
+    }
+  }, [])
+  
+
+  // useEffect(()=>{
+  //   console.log(scroll)
+  // }, [scroll])
   
   const scrollDown = (e: React.MouseEvent) => {
     // window.scrollBy(0, window.innerHeight)
@@ -20,6 +42,16 @@ const Page = () => {
       behavior: "smooth"
     })
     console.log('Scrolled down from page')
+  }
+
+  const scrollUp = (e: React.MouseEvent) => {
+    window.scrollTo({
+      top: -window.innerHeight,
+      left: 0,
+      behavior: "smooth"
+    })
+    console.log("Arr clicked")
+
   }
 
   const words: string[] = ["faster", "smoother", "better"]
@@ -36,7 +68,7 @@ const Page = () => {
             Explore more features below:
           </p>
         </div>
-        <div className='grid grid-cols-3 grid-rows-2 h-[60vh] w-[90vw] mx-auto mt-6 gap-3'>
+        <div className='grid grid-cols-3 grid-rows-2 h-[60vh] w-[90vw] mx-auto mt-6 gap-3 z-10'>
           <div className='col-span-2 border rounded-xl flex hover:scale-[102.5%] hover:duration-150'>
             {/* Text */}
             <div className='flex flex-col w-[75%] p-4'>
@@ -101,6 +133,10 @@ const Page = () => {
           </div>
         </div>
       </div>
+      {arrVisibility ? (
+        <ButtonUp className='fixed hover:cursor-pointer hover:translate-y-[-1rem] right-0 bottom-0 border mr-4 mb-4 hover:scale-105' scrollUp={scrollUp} />) 
+        : null}
+      
     </>
          
     
